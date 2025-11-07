@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Contact = require('./models/Contact');
 
-// @desc    Get all contacts
-// @route   GET /api/contacts
-// @access  Public
+// Get all contacts
 router.get('/', async (req, res) => {
   try {
     const contacts = await Contact.find({}).sort({ createdAt: -1 });
@@ -23,9 +21,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @desc    Get single contact
-// @route   GET /api/contacts/:id
-// @access  Public
+// Get single contact by ID
 router.get('/:id', async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);

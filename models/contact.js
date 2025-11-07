@@ -30,8 +30,4 @@ const contactSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Create index for better query performance
-contactSchema.index({ email: 1 });
-contactSchema.index({ firstName: 1, lastName: 1 });
-
 module.exports = mongoose.model('Contact', contactSchema);
